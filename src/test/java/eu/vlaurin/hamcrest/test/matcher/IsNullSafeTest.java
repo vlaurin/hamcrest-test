@@ -1,9 +1,10 @@
 package eu.vlaurin.hamcrest.test.matcher;
 
+import eu.vlaurin.hamcrest.test.TestMatchers;
 import org.hamcrest.Matcher;
 import org.junit.Test;
 
-import static eu.vlaurin.hamcrest.test.matcher.IsNullSafe.nullSafe;
+import static eu.vlaurin.hamcrest.test.TestMatchers.nullSafe;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
@@ -17,6 +18,11 @@ public class IsNullSafeTest {
 
     @Test
     public void isNullSafe() {
+        assertThat(nullSafe(), is(nullSafe()));
+    }
+
+    @Test
+    public void isUnknownTypeSafe() {
         assertThat(nullSafe(), is(nullSafe()));
     }
 
