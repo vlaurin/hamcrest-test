@@ -1,16 +1,13 @@
 package eu.vlaurin.hamcrest.test.matcher;
 
-import eu.vlaurin.hamcrest.test.TestMatchers;
 import org.hamcrest.Matcher;
-import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import static eu.vlaurin.hamcrest.test.TestMatchers.nullSafe;
-import static eu.vlaurin.hamcrest.test.TestMatchers.unknownTypeSafe;
+import static eu.vlaurin.hamcrest.test.TestMatchers.*;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -27,6 +24,11 @@ public class IsUnknownTypeSafeTest {
     @Test
     public void isUnknownTypeSafe() {
         assertThat(unknownTypeSafe(), is(unknownTypeSafe()));
+    }
+
+    @Test
+    public void testHasDescription() {
+        assertThat(unknownTypeSafe(), hasDescription("an unknown type safe matcher"));
     }
 
     @Test
