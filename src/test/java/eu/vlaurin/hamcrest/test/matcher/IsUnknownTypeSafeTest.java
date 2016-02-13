@@ -32,6 +32,15 @@ public class IsUnknownTypeSafeTest {
     }
 
     @Test
+    public void testHasMismatchDescription() {
+        final Matcher<?> matcher = mock(Matcher.class);
+        when(matcher.matches(Mockito.any())).thenThrow(Exception.class);
+        when(matcher.toString()).thenReturn("Mock for Matcher, hashCode: 967765295");
+
+        assertThat(unknownTypeSafe(), hasMismatchDescription("was not an unknown type safe matcher: <Mock for Matcher, hashCode: 967765295>", matcher));
+    }
+
+    @Test
     public void matchesUnknownTypeSafe() {
         final Matcher<?> typeSafeMatcher = mock(Matcher.class);
         when(typeSafeMatcher.matches(Mockito.any())).thenReturn(false);

@@ -1,6 +1,7 @@
 package eu.vlaurin.hamcrest.test;
 
 import eu.vlaurin.hamcrest.test.matcher.HasDescription;
+import eu.vlaurin.hamcrest.test.matcher.HasMismatchDescription;
 import eu.vlaurin.hamcrest.test.matcher.IsNullSafe;
 import eu.vlaurin.hamcrest.test.matcher.IsUnknownTypeSafe;
 import org.hamcrest.Matcher;
@@ -47,5 +48,23 @@ public class TestMatchers {
      */
     public static Matcher<Matcher<?>> hasDescription(String expectedDescription) {
         return HasDescription.hasDescription(expectedDescription);
+    }
+
+    /**
+     * Creates a matcher of {@link Matcher} that matches when the examined matcher has the expected mismatch description.
+     * For example:
+     * <pre>
+     *     Matcher<?> matcher = ...;
+     *     Object actualArg = ...;
+     *     assertThat(matcher, hasMismatchDescription("mismatch: explanation", actualArg));
+     * </pre>
+     *
+     * @param expectedMismatch
+     *         the description expected upon mismatch
+     * @param actualArgument
+     *         the argument causing the matcher to mismatch
+     */
+    public static Matcher<Matcher<?>> hasMismatchDescription(String expectedMismatch, Object actualArgument) {
+        return HasMismatchDescription.hasMismatchDescription(expectedMismatch, actualArgument);
     }
 }

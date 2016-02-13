@@ -31,6 +31,15 @@ public class IsNullSafeTest {
     }
 
     @Test
+    public void testHasMismatchDescription() {
+        final Matcher<?> matcher = mock(Matcher.class);
+        when(matcher.matches(null)).thenThrow(Exception.class);
+        when(matcher.toString()).thenReturn("Mock for Matcher, hashCode: 967765295");
+
+        assertThat(nullSafe(), hasMismatchDescription("was not a null safe matcher: <Mock for Matcher, hashCode: 967765295>", matcher));
+    }
+
+    @Test
     public void matchesNullSafe() {
         final Matcher<?> nullSafeMatcher = mock(Matcher.class);
         when(nullSafeMatcher.matches(null)).thenReturn(false);

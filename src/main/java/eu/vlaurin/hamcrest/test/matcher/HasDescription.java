@@ -30,8 +30,11 @@ public final class HasDescription extends TypeSafeMatcher<Matcher<?>> {
     }
 
     @Override
-    protected void describeMismatchSafely(Matcher<?> item, Description mismatchDescription) {
-        super.describeMismatchSafely(item, mismatchDescription);
+    protected void describeMismatchSafely(Matcher<?> matcher, Description mismatchDescription) {
+        final StringDescription description = new StringDescription();
+        matcher.describeTo(description);
+        mismatchDescription.appendText("had description: ")
+                           .appendValue(description);
     }
 
     public void describeTo(Description description) {

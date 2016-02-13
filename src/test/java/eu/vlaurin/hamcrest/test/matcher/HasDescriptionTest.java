@@ -11,7 +11,7 @@ import static eu.vlaurin.hamcrest.test.TestMatchers.*;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.*;
 
 /**
  * @since 1.0.0
@@ -34,6 +34,22 @@ public class HasDescriptionTest {
         final Matcher<Matcher<?>> matcher = hasDescription("hello world");
 
         assertThat(matcher, hasDescription("has description: \"hello world\""));
+    }
+
+    @Test
+    public void testHasMismatchDescription() {
+        final Matcher<?> matcher = mock(Matcher.class);
+        doAnswer(new Answer<Void>() {
+            public Void answer(InvocationOnMock invocationOnMock) throws Throwable {
+                final Description description = (Description) invocationOnMock.getArguments()[0];
+                description.appendText("other description");
+                return null;
+            }
+        }).when(matcher)
+          .describeTo(Mockito.any(Description.class));
+        when(matcher.toString()).thenReturn("Mock for Matcher, hashCode: 967765295");
+
+        assertThat(hasDescription("some description"), hasMismatchDescription("had description: <other description>", matcher));
     }
 
     @Test
