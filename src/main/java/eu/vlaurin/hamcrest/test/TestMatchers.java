@@ -19,6 +19,8 @@ public class TestMatchers {
      * <pre>
      *     assertThat(matcher, is(nullSafe()));
      * </pre>
+     *
+     * @since 1.0.0
      */
     public static Matcher<Matcher<?>> nullSafe() {
         return IsNullSafe.nullSafe();
@@ -30,6 +32,8 @@ public class TestMatchers {
      * <pre>
      *     assertThat(matcher, is(unknownTypeSafe()));
      * </pre>
+     *
+     * @since 1.0.0
      */
     public static Matcher<Matcher<?>> unknownTypeSafe() {
         return IsUnknownTypeSafe.unknownTypeSafe();
@@ -45,6 +49,7 @@ public class TestMatchers {
      *
      * @param expectedDescription
      *         the description that must be provided by the examined matcher
+     * @since 1.0.0
      */
     public static Matcher<Matcher<?>> hasDescription(String expectedDescription) {
         return HasDescription.hasDescription(expectedDescription);
@@ -63,6 +68,7 @@ public class TestMatchers {
      *         the description expected upon mismatch
      * @param actualArgument
      *         the argument causing the matcher to mismatch
+     * @since 1.0.0
      */
     public static Matcher<Matcher<?>> hasMismatchDescription(String expectedMismatch, Object actualArgument) {
         return HasMismatchDescription.hasMismatchDescription(expectedMismatch, actualArgument);
