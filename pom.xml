@@ -4,12 +4,25 @@
 
     <groupId>eu.vlaurin</groupId>
     <artifactId>hamcrest-test</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>hamcrest-test</name>
     <description>Library of matchers for testing Hamcrest matchers, based on Java Hamcrest</description>
     <url>https://github.com/vlaurin/hamcrest-test</url>
+
+    <licenses>
+        <license>
+            <name>BSD 3-Clause</name>
+            <url>https://opensource.org/licenses/BSD-3-Clause</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/vlaurin/hamcrest-test</url>
+        <connection>scm:git:https://github.com/vlaurin/hamcrest-test.git</connection>
+    </scm>
 
     <issueManagement>
         <system>GitHub</system>
