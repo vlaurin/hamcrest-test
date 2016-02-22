@@ -7,7 +7,7 @@ import org.hamcrest.TypeSafeMatcher;
 /**
  * Matches unknown type safe matchers.
  *
- * @since 1.0.0
+ * @since 0.1.0
  */
 public final class IsUnknownTypeSafe extends TypeSafeMatcher<Matcher<?>> {
     private static final IsUnknownTypeSafe INSTANCE = new IsUnknownTypeSafe();
@@ -37,11 +37,14 @@ public final class IsUnknownTypeSafe extends TypeSafeMatcher<Matcher<?>> {
     }
 
     /**
-     * Creates a matcher of {@link Matcher} that matches when the examined matcher is unknown type safe.
-     * For example:
+     * Creates a matcher of {@link Matcher} that matches when the examined matcher is unknown type safe. For example:
      * <pre>
+     * {@code
      *     assertThat(matcher, is(unknownTypeSafe()));
+     * }
      * </pre>
+     *
+     * @return Instance of {@link IsUnknownTypeSafe} matcher
      */
     public static Matcher<Matcher<?>> unknownTypeSafe() {
         return INSTANCE;

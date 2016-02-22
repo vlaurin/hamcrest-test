@@ -7,7 +7,7 @@ import org.hamcrest.TypeSafeMatcher;
 /**
  * Matches null-safe matchers.
  *
- * @since 1.0.0
+ * @since 0.1.0
  */
 public final class IsNullSafe extends TypeSafeMatcher<Matcher<?>> {
     private static final IsNullSafe INSTANCE = new IsNullSafe();
@@ -37,11 +37,14 @@ public final class IsNullSafe extends TypeSafeMatcher<Matcher<?>> {
     }
 
     /**
-     * Creates a matcher of {@link Matcher} that matches when the examined matcher is null-safe.
-     * For example:
+     * Creates a matcher of {@link Matcher} that matches when the examined matcher is null-safe. For example:
      * <pre>
+     * {@code
      *     assertThat(matcher, is(nullSafe()));
+     * }
      * </pre>
+     *
+     * @return Instance of {@link IsNullSafe} matcher
      */
     public static Matcher<Matcher<?>> nullSafe() {
         return INSTANCE;

@@ -8,7 +8,7 @@ import org.hamcrest.TypeSafeMatcher;
 /**
  * Matches matchers with expected description.
  *
- * @since 1.0.0
+ * @since 0.1.0
  */
 public final class HasDescription extends TypeSafeMatcher<Matcher<?>> {
     private final String expectedDescription;
@@ -43,17 +43,20 @@ public final class HasDescription extends TypeSafeMatcher<Matcher<?>> {
     }
 
     /**
-     * Creates a matcher of {@link Matcher} that matches when the examined matcher has the expected description.
-     * For example:
+     * Creates a matcher of {@link Matcher} that matches when the examined matcher has the expected description. For
+     * example:
      * <pre>
+     * {@code
      *     final Matcher<Matcher<?>> matcher = hasDescription("hello world");
      *     assertThat(matcher, hasDescription("has description: \"hello world\""));
+     * }
      * </pre>
      *
      * @param expectedDescription
      *         the description that must be provided by the examined matcher
+     * @return Instance of {@link HasDescription} matcher
      */
-    public static final Matcher<Matcher<?>> hasDescription(String expectedDescription) {
+    public static Matcher<Matcher<?>> hasDescription(String expectedDescription) {
         return new HasDescription(expectedDescription);
     }
 }

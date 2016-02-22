@@ -8,7 +8,7 @@ import org.hamcrest.TypeSafeMatcher;
 /**
  * Matches matchers with expected mismatch description.
  *
- * @since 1.0.0
+ * @since 0.1.0
  */
 public final class HasMismatchDescription extends TypeSafeMatcher<Matcher<?>> {
     private final String expectedMismatch;
@@ -53,18 +53,21 @@ public final class HasMismatchDescription extends TypeSafeMatcher<Matcher<?>> {
     }
 
     /**
-     * Creates a matcher of {@link Matcher} that matches when the examined matcher has the expected mismatch description.
-     * For example:
+     * Creates a matcher of {@link Matcher} that matches when the examined matcher has the expected mismatch
+     * description. For example:
      * <pre>
+     * {@code
      *     Matcher<?> matcher = ...;
      *     Object actualArg = ...;
      *     assertThat(matcher, hasMismatchDescription("mismatch: explanation", actualArg));
+     * }
      * </pre>
      *
      * @param expectedMismatch
      *         the description expected upon mismatch
      * @param actualArgument
      *         the argument causing the matcher to mismatch
+     * @return Instance of {@link HasMismatchDescription} matcher
      */
     public static Matcher<Matcher<?>> hasMismatchDescription(String expectedMismatch, Object actualArgument) {
         return new HasMismatchDescription(expectedMismatch, actualArgument);
