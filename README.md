@@ -48,3 +48,7 @@ IMatcher matcher = is(true);
 
 assertThat(matcher, hasMismatchDescription("was false", false));
 ```
+
+## Resources
+
+- [Javadoc](http://vlaurin.eu/hamcrest-test/)
